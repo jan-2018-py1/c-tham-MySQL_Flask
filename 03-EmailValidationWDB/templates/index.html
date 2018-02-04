@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MySQL-Flask: Email Validation with DB</title>
+</head>
+<body>
+  <h1>Emails</h1>
+  <hr>
+    {{ all_emails }}
+  <hr>
+  <div class="row">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class=flashes>
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </div >
+        {% endif %}
+    {% endwith %}
+  </div>
+  <hr>
+  <div id="list">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Email Address</th>
+        <th>Created At</th>
+      </tr>
+      {% for email in all_emails: %}
+        <tr>
+            <td>{{ email['id'] }}</td>
+            <td>{{ email['email'] }}</td>
+            <td>{{ email['created_at'] }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div id="add">
+    <h2>Add an Email Address</h2>
+      <form action='/' method='POST'>
+        <label for="email">Email Address:<input type="text" name="email" id="email"></label>
+        <input type="submit" value="Add">
+      </form>
+  </div>
+  <div id="update">
+    <h2>Update an Email Address</h2>
+    <form action='/' method='POST'>
+      <label for="id">ID:<input type="text" name="id" id="id"></label>
+      <label for="email">Email Address:<input type="text" name="email" id="email"></label>
+      <input type="submit" value="Update">
+    </form>
+  </div>
+  <div id="delete">
+      <h2>Delete an Email Address</h2>
+      <form action='/delete' method='POST'>
+        <label for="id">ID:<input type="text" name="id" id="id"></label>
+        <input type="submit" value="Delete">
+      </form>
+    </div>
+</body>
+</html>
