@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MySQL_Flask - Dashboard</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="container">
+        <div id="messages">
+                <div class="row">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                <div class=flashes>
+                                    {% for category, message in messages %}
+                                        <p class="{{ category }}">{{ message }}</li>
+                                    {% endfor %}
+                                </div >
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+        </div>
+        <div id="main">
+            <div class="row">
+                <h1>Welcome to Dashboard</h1>
+                <h3>Hello {{user.first_name}}, your email address is {{user.email_address}}</h3>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+* {
+    /* outline: 1px dotted red; */
+}
+#container {
+    width: 600px;
+    margin: 0px auto;
+}
+.row {
+    display: inline-block;
+    width: 100%
+}
+.col-left {
+    width: 25%;
+    margin-top: 6px;
+    display: inline-block;
+}
+.col-right {
+    width: 70%;
+    margin-top: 6px;
+    display: inline-block;
+}
+.flashes {
+    /* margin: 0px; */
+    margin: 0px 0px 10px;
+}
+.error_empty {
+    color: red;
+    margin: 0px;
+}
+.error_invalid {
+    color: lightcoral;
+    margin: 0px;
+}
+.error_ninja {
+    color: darkred;
+    margin: 0px;
+}
+.error_hacker {
+    color: purple;
+    margin: 0px;
+}
+.pass {
+    color: green;
+    margin: 0px;
+}
