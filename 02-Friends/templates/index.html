@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MySQL-Flask: Friends</title>
+</head>
+<body>
+  <h1>Friends</h1>
+  <hr>
+    {{ all_friends }}
+  <hr>
+  <div id="list">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Friend Since</th>
+      </tr>
+      {% for friend in all_friends: %}
+        <tr>
+            <td>{{ friend['id'] }}</td>
+            <td>{{ friend['first_name'] }}</td>
+            <td>{{ friend['last_name'] }}</td>
+            <td>{{ friend['age'] }}</td>
+            <td>{{ friend['friend_since'] }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div id="add">
+    <h2>Add a Friend</h2>
+      <form action='/friends' method='POST'>
+        <label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+        <label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
+        <label for="age">Age:<input type="text" name="age" id="age"></label>
+        <label for="friend_since">Friend Since:<input type="date" name="friend_since" id="friend_since"></label>
+        <input type="submit" value="Add">
+      </form>
+  </div>
+  <div id="update">
+    <h2>Update a Friend</h2>
+    <form action='/update' method='POST'>
+      <label for="id">ID:<input type="text" name="id" id="id"></label>
+      <label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+      <label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
+      <label for="age">Age:<input type="text" name="age" id="age"></label>
+      <label for="friend_since">Friend Since:<input type="date" name="friend_since" id="friend_since"></label>
+      <input type="submit" value="Update">
+    </form>
+  </div>
+  <div id="delete">
+      <h2>Delete a Friend</h2>
+      <form action='/delete' method='POST'>
+        <label for="id">ID:<input type="text" name="id" id="id"></label>
+        <input type="submit" value="Delete">
+      </form>
+    </div>
+</body>
+</html>
