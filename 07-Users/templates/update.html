@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MySQL-Flask: Users (RESTful)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- {{ all_friends }} -->
+    <h1>Edit user</h1>
+    <div id="add">
+        <form action='/update' method='POST'>
+            <p><label for="first_name">First Name: <input type="text" name="first_name" id="first_name" value="{{ all_friends['first_name'] }}"></label></p>
+            <p><label for="last_name">Last Name: <input type="text" name="last_name" id="last_name" value="{{ all_friends['last_name'] }}"></label></p>
+            <p><label for="age">Age: <input type="text" name="age" id="age" value="{{ all_friends['age'] }}"></label></p>
+            <p><label for="friend_since">Friend Since: <input type="date" name="friend_since" id="friend_since" value="{{ all_friends['friend_since'] }}"></label></p>
+            <p><input type="submit" value="Update this record"></p>
+            <input type="hidden" name="userID" value="{{ all_friends['id'] }}">
+            <a href="/users">Go Back</a>
+        </form>
+    </div>
+</body>
+</html>
