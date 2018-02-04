@@ -1,0 +1,107 @@
+/* * {
+    outline: 1px dotted red;
+} */
+#container {
+    width: 600px;
+    margin: 0px auto;
+}
+.row {
+    display: inline-block;
+    width: 100%;
+}
+.row h1 {
+    text-align: center;
+}
+.row_message {
+    display: inline-block;
+    width: 100%;
+}
+.row_message h3 {
+    margin-bottom: 0px;
+}
+.row_message p {
+    margin-top: 0px;
+}
+.row_comment {
+    display: inline-block;
+    width: 100%;
+    margin-left: 20px;
+}
+.row_comment h3 {
+    margin-bottom: 0px;
+}
+.row_comment p {
+    margin-top: 0px;
+}
+.row_comment h5 {
+    margin: 0px;
+}
+.row_comment textarea {
+    width: 90%;
+}
+.col-left {
+    width: 25%;
+    margin-top: 6px;
+    display: inline-block;
+}
+.col-right {
+    width: 70%;
+    margin-top: 6px;
+    display: inline-block;
+}
+.col1 {
+    width: 25%;
+    margin-top: 6px;
+    /* text-align: left; */
+    display: inline-block;
+}
+.col2 {
+    width: 60%;
+    margin-top: 6px;
+    text-align: right;
+    display: inline-block;
+}
+.col3 {
+    width: 10%;
+    margin-top: 6px;
+    text-align: right;
+    display: inline-block;
+}
+.submit {
+    background-color: blue;
+    color: white;
+}
+.flashes {
+    /* margin: 0px; */
+    margin: 0px 0px 10px;
+}
+.error_empty {
+    color: white;
+    background-color: red;
+    text-align: center;
+    margin: 0px;
+}
+.error_invalid {
+    color: white;
+    background-color: lightsalmon;
+    text-align: center;
+    margin: 0px;
+}
+.error_ninja {
+    color: white;
+    background-color: darkred;
+    text-align: center;
+    margin: 0px;
+}
+.error_hacker {
+    color: white;
+    background-color: blueviolet;
+    text-align: center;
+    margin: 0px;
+}
+.pass {
+    color: white;
+    background-color: green;
+    text-align: center;
+    margin: 0px;
+}

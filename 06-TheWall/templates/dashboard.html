@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MySQL_Flask - the WALL's Dashboard</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="container">
+        <div id="messages">
+                <div class="row">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                <div class=flashes>
+                                    {% for category, message in messages %}
+                                        <p class="{{ category }}">{{ message }}</li>
+                                    {% endfor %}
+                                </div >
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+        </div>
+        <div id="main">
+            <div class="row">
+                <div class="col1">
+                    <h1>The Wall</h1>
+                </div>
+                <div class="col2">
+                    <h3>Welcome {{user.first_name}}!</h3>
+                </div>
+                <div class="col3">
+                    <a href="/logout"> Logout</a>
+                </div>
+            </div>
+            <div class="row">
+                <h2>Post a message</h2>
+                <form action="/postmessage" method="post">
+                    <textarea name='message' rows="4" cols=95% placeholder="post a message"></textarea>
+                    <div class="row">
+                        <input type="submit" value="Post a message" class="submit">
+                    </div>
+                </form>
+            </div>
+            <div class="row_message">
+                {% for data1 in postmessage %}
+                    <h3>{{ data1['name'] }} - {{ data1['created_at'] }}</h3>
+                    {% if data1['user_id'] == session["user_id"] %}
+                        <form action="/deletemessage" method="post">
+                            <input type="hidden" name="messageID" value="{{ data1['id'] }}">
+                            <input type="hidden" name="messageDatetime" value="{{ data1['messageDatetime'] }}">
+                            <div class="row">
+                                <input type="submit" value="Delete my message" class="submit">
+                            </div>
+                        </form>
+                    {% endif %} 
+                    <p>{{ data1['message'] }}</p>
+                    <div class="row_comment">
+                        {% for data2 in postcomment %}
+                            {% if data1['id'] == data2['message_id'] %}
+                                <h3>{{ data2['name'] }} - {{ data2['created_at'] }}</h3>
+                                <p>{{ data2['comment'] }}</p>
+                            {% endif %}
+                        {% endfor %}
+                        <h5>Post a comment</h5>
+                        <form action="/postcomment" method="post">
+                            <input type="hidden" name="messageID" value="{{ data1['id'] }}">
+                            <textarea name='comment' rows="2" cols=95% placeholder="post a comment"></textarea>
+                            <div class="row">
+                                <input type="submit" value="Post a comment" class="submit">
+                            </div>
+                        </form>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

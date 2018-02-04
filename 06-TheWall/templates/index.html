@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MySQL_Flask - the WALL</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="container">
+        <div id="messages">
+                <div class="row">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                <div class=flashes>
+                                    {% for category, message in messages %}
+                                        <p class="{{ category }}">{{ message }}</li>
+                                    {% endfor %}
+                                </div >
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+        </div>
+        <div class="row">
+            <h1>The Wall</h1>
+        </div>
+        <div id="login">
+            <form action="/login" method="post">
+                <h1>Login Form</h1>
+                <div class="row">
+                    <div class="col-left">
+                        Your Email:
+                    </div>
+                    <div class="col-right">
+                        <input type='text' name='email' placeholder="E-mail address">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-left">
+                        Your Password:
+                    </div>
+                    <div class="col-right">
+                        <input type='text' name='password' placeholder="Password">
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="submit" value="Log In" class="submit">
+                </div>
+            </form>
+        </div>
+        <div id="registration">
+            <form action="/registration" method="post">
+                <h1>Registration Form</h1>
+                <div class="row">
+                    <div class="col-left">
+                        Your Email:
+                    </div>
+                    <div class="col-right">
+                        <input type='text' name='email' placeholder="E-mail address">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-left">
+                        Your First Name:
+                    </div>
+                    <div class="col-right">
+                        <input type='text' name='firstname' placeholder="First Name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-left">
+                        Your Last Name:
+                    </div>
+                    <div class="col-right">
+                        <input type='text' name='lastname' placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-left">
+                        Your Password:
+                    </div>
+                    <div class="col-right">
+                        <input type='text' name='password1' placeholder="Password">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-left">
+                        Confirm Password:
+                    </div>
+                    <div class="col-right">
+                        <input type='text' name='password2' placeholder="Comfirm Password">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-left">
+                        Date of Birth:
+                    </div>
+                    <div class="col-right">
+                        <input type='date' name='dob' placeholder="Date of birth">
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="submit" value="Create Account" class="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
